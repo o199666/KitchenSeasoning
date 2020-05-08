@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_bottom"
+    app:startDestination="@id/menuFragment"
+    tools:ignore="UnusedNavigation">
+    <fragment
+        android:layout="@layout/fragment_menu"
+        android:id="@+id/menuFragment"
+        android:name="com.cwj.kitchenseasoning.fragment.MenuFragment"
+        android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/piazzaFragment"
+        android:layout="@layout/fragment_piazza"
+        android:name="com.cwj.kitchenseasoning.fragment.PiazzaFragment"
+        android:label="PiazzaFragment" />
+    <fragment
+        android:layout="@layout/fragment_store"
+        android:id="@+id/storeFragment"
+        android:name="com.cwj.kitchenseasoning.fragment.StoreFragment"
+        android:label="StoreFragment" />
+    <fragment
+        android:layout="@layout/fragment_my"
+        android:id="@+id/myFragment"
+        android:name="com.cwj.kitchenseasoning.fragment.MyFragment"
+        android:label="MyFragment" />
+</navigation>

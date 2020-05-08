@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">菜谱大全</string>
+    <string name="menu_name">菜谱</string>
+    <string name="my_name">我的</string>
+    <string name="piazza_name">广场</string>
+    <string name="store_name">商城</string>
+</resources>

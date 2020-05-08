@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/ic_menu"
+        android:title="@string/menu_name" />
+    <item
+        android:id="@+id/piazzaFragment"
+        android:icon="@drawable/ic_piazza"
+        android:title="@string/piazza_name" />
+    <item
+        android:id="@+id/storeFragment"
+        android:icon="@drawable/ic_store"
+        android:title="@string/store_name" />
+    <item
+        android:id="@+id/myFragment"
+        android:icon="@drawable/ic_my"
+        android:title="@string/my_name" />
+</menu>
