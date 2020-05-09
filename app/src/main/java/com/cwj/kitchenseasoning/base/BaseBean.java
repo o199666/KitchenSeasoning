@@ -1,5 +1,8 @@
 package com.cwj.kitchenseasoning.base;
 
+import androidx.lifecycle.ViewModel;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,8 +12,7 @@ import java.util.List;
  * Ver:1
  * DEC:
  */
-public class BaseBean {
-
+public class BaseBean<T> extends ViewModel implements Serializable {
     /**
      * resultcode : 200
      * reason : Success
@@ -21,8 +23,7 @@ public class BaseBean {
     private String resultcode;
     private String reason;
     private int error_code;
-    private List<ListBean> list;
-
+    private List<T> list;
     public String getResultcode() {
         return resultcode;
     }
@@ -43,18 +44,15 @@ public class BaseBean {
         return error_code;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
-    }
-
-    public List<ListBean> getList() {
+    public List<T> getList() {
         return list;
     }
 
-    public void setList(List<ListBean> list) {
+    public void setList(List<T> list) {
         this.list = list;
     }
 
-    public static class ListBean {
+    public void setError_code(int error_code) {
+        this.error_code = error_code;
     }
 }

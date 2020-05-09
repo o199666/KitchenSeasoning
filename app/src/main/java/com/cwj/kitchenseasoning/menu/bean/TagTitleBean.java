@@ -1,5 +1,7 @@
 package com.cwj.kitchenseasoning.menu.bean;
 
+import com.cwj.kitchenseasoning.base.BaseBean;
+
 /**
  * Created by CWJ on 2020/5/9.
  * Author:Chen
@@ -7,7 +9,7 @@ package com.cwj.kitchenseasoning.menu.bean;
  * Ver:1
  * DEC:
  */
-public class TagTitleBean {
+public class TagTitleBean extends BaseBean {
     /**
      * id : 1
      * name : 家常菜
