@@ -3,11 +3,20 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="AppTheme.MyApp" parent="Theme.MaterialComponents.Light.Bridge">
         <!-- ... -->
     </style>
+    <style name="AppThemeNav" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="TabLayoutTextStyle">
+
+    </style>
+
 </resources>

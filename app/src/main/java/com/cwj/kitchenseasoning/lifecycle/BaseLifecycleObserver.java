@@ -18,7 +18,6 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class BaseLifecycleObserver implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart(@NonNull LifecycleOwner owner) {
-
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)

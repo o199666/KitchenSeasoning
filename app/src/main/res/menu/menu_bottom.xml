@@ -3,6 +3,7 @@
     <item
         android:id="@+id/menuFragment"
         android:icon="@drawable/ic_menu"
+        android:iconTint="@drawable/bottom_text_select_color"
         android:title="@string/menu_name" />
     <item
         android:id="@+id/piazzaFragment"

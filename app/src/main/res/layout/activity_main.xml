@@ -12,7 +12,7 @@
             <androidx.fragment.app.FragmentContainerView
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:id="@+id/fragmen"
-                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/nav_view_bottom"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -24,19 +24,20 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/nav_view_bottom"
                 android:layout_width="0dp"
+                style="@style/AppThemeNav"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 app:itemRippleColor="@color/colorWhite"
-                app:itemTextColor="@color/colorWhite"
                 android:layout_marginEnd="0dp"
-                android:background="@color/colorTheme"
+                android:background="@color/color_nav"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:labelVisibilityMode="labeled"
                 android:layout_alignParentBottom="true"
                 app:layout_constraintRight_toRightOf="parent"
+                app:labelVisibilityMode="auto"
                 app:menu="@menu/menu_bottom" />
-
+<!--              选中图标变大  app:labelVisibilityMode="labeled"
+-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
