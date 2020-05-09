@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 
 import com.cwj.kitchenseasoning.lifecycle.BaseLifecycleObserver;
@@ -21,7 +19,6 @@ import com.cwj.kitchenseasoning.lifecycle.BaseLifecycleObserver;
  * DEC:
  */
 public abstract class BaseFragment   extends Fragment {
-    ViewDataBinding dataBinding;
 
     public BaseFragment() {
 
@@ -30,11 +27,9 @@ public abstract class BaseFragment   extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        dataBinding= DataBindingUtil.inflate(inflater,setResId(),container,false);
 
-        return  dataBinding.getRoot();
+        return null;
     }
-    public abstract  int setResId();
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundel) {
         super.onViewCreated(view, bundel);
