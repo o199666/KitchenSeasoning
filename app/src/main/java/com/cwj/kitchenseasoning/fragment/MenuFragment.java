@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.cwj.kitchenseasoning.R;
 import com.cwj.kitchenseasoning.base.BaseFragment;
 import com.cwj.kitchenseasoning.databinding.FragmentMenuBinding;
 import com.cwj.kitchenseasoning.menu.adapter.MenuAdapter1;
+import com.cwj.kitchenseasoning.menu.viewmodel.TagTitleViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -26,7 +28,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class MenuFragment extends BaseFragment  {
     private MenuAdapter1 adapter;
     private FragmentMenuBinding binding;
-    private String [] title={"火锅","炒菜","凉菜","面食","西餐","其他"};
+    TagTitleViewModel tagTitleViewModel;
 
     @Nullable
     @Override
@@ -35,17 +37,32 @@ public class MenuFragment extends BaseFragment  {
         return binding.getRoot();
     }
 
-
-
     @Override
     public void initData(Bundle mBundel) {
-        adapter=new MenuAdapter1(this,title);
-        binding.viewPage.setAdapter(adapter);
-        new TabLayoutMediator(binding.tlt,binding.viewPage, true, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(title[position]);
-            }
-        }).attach();
+        tagTitleViewModel = new ViewModelProvider(this).get(TagTitleViewModel.class);
+        tagTitleViewModel.getTags().observe(this, tags -> {
+            //处理UI
+            adapter=new MenuAdapter1(this,tags);
+            binding.viewPage.setAdapter(adapter);
+            new TabLayoutMediator(binding.tlt,binding.viewPage, true, new TabLayoutMediator.TabConfigurationStrategy() {
+                @Override
+                public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
+                    tab.setText(tags.get(i).getName());
+                }
+            }).attach();
+
+
+        });
+//        tagTitleViewModel.getTags().observe(this, new Observer<String[]>() {
+//            @Override
+//            public void onChanged(String[] strings) {
+//
+//            }
+//        });
+
+
+
+
+
     }
 }

@@ -9,7 +9,7 @@ import com.cwj.kitchenseasoning.base.BaseBean;
  * Ver:1
  * DEC:
  */
-public class TagTitleBean extends BaseBean {
+public class TagTitleBean  extends BaseBean<TagTitleBean> {
     /**
      * id : 1
      * name : 家常菜

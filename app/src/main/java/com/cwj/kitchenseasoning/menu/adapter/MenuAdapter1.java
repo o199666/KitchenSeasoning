@@ -6,7 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.cwj.kitchenseasoning.menu.bean.TagTitleBean;
 import com.cwj.kitchenseasoning.menu.fragment.CuisineFragment;
+
+import java.util.List;
 
 /**
  * Created by CWJ on 2020/5/8.
@@ -16,8 +19,8 @@ import com.cwj.kitchenseasoning.menu.fragment.CuisineFragment;
  * DEC:
  */
 public class MenuAdapter1 extends FragmentStateAdapter {
-    private String [] title;
-    public MenuAdapter1(@NonNull Fragment fragment,String [] title) {
+    private List<TagTitleBean> title;
+    public MenuAdapter1(@NonNull Fragment fragment,List<TagTitleBean> title) {
         super(fragment);
         this.title=title;
     }
@@ -27,13 +30,13 @@ public class MenuAdapter1 extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Fragment fragment=new CuisineFragment();
         Bundle bundle=new Bundle();
-        bundle.putString("AA",position+"");
+        bundle.putString("title",title.get(position).getName());
         fragment.setArguments(bundle);
         return fragment;
     }
 
     @Override
     public int getItemCount() {
-        return title.length;
+        return title.size();
     }
 }
