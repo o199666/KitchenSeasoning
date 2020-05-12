@@ -12,7 +12,7 @@ import java.util.List;
  * Ver:1
  * DEC:
  */
-public class BaseBean<T> extends ViewModel implements Serializable {
+public  class BaseBean<T> extends ViewModel implements Serializable {
     /**
      * resultcode : 200
      * reason : Success

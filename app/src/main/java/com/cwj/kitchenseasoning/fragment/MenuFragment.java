@@ -29,14 +29,12 @@ public class MenuFragment extends BaseFragment  {
     private MenuAdapter1 adapter;
     private FragmentMenuBinding binding;
     TagTitleViewModel tagTitleViewModel;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_menu, container, false);
         return binding.getRoot();
     }
-
     @Override
     public void initData(Bundle mBundel) {
         tagTitleViewModel = new ViewModelProvider(this).get(TagTitleViewModel.class);
