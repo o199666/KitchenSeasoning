@@ -23,7 +23,15 @@ public  class BaseBean<T> extends ViewModel implements Serializable {
     private String reason;
     private int error_code;
     private List<T> list;
+    private T data;
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 
     public String getResultcode() {
         return resultcode;
