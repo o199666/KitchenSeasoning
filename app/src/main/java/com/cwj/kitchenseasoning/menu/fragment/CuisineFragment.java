@@ -9,11 +9,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.cwj.kitchenseasoning.R;
 import com.cwj.kitchenseasoning.base.BaseFragment;
 import com.cwj.kitchenseasoning.databinding.FargmentCuisineBinding;
-import com.cwj.kitchenseasoning.menu.viewmodel.TagTitleViewModel;
+import com.cwj.kitchenseasoning.menu.adapter.DetailsAdapter;
+import com.cwj.kitchenseasoning.menu.bean.DetailsBean;
+import com.cwj.kitchenseasoning.menu.viewmodel.DetailsViewModel;
+
+import java.util.List;
 
 /**
  * Created by CWJ on 2020/5/8.
@@ -24,7 +31,8 @@ import com.cwj.kitchenseasoning.menu.viewmodel.TagTitleViewModel;
  */
 public class CuisineFragment extends BaseFragment {
     FargmentCuisineBinding cuisineBinding;
-    TagTitleViewModel tagTitleViewModel;
+    DetailsViewModel detailsViewModel;
+    private DetailsAdapter detailsAdapter;
 
     @Nullable
     @Override
@@ -40,6 +48,24 @@ public class CuisineFragment extends BaseFragment {
         bd = getArguments();
         String title=bd.getString("title");
         Toast.makeText(getContext(), title, Toast.LENGTH_SHORT).show();
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        cuisineBinding.rylv.setLayoutManager(layoutManager);
+
+
+
+        detailsViewModel=new ViewModelProvider(this).get(DetailsViewModel.class);
+        detailsViewModel.getDetas().observe(this, new Observer<List<DetailsBean.ResultBean.DataBean>>() {
+            @Override
+            public void onChanged(List<DetailsBean.ResultBean.DataBean> detailsBeans) {
+                if (title.equals("家常菜")){
+                    detailsAdapter = new DetailsAdapter(getContext(), detailsBeans);
+
+                    cuisineBinding.rylv.setAdapter(detailsAdapter);
+                };
+            }
+        });
 
     }
 }

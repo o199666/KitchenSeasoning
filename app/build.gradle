@@ -102,4 +102,12 @@ dependencies {
 // https://mvnrepository.com/artifact/com.google.android.material/material
     implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha05'
     implementation 'com.google.code.gson:gson:2.8.4'
+    // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
+    implementation group: 'androidx.recyclerview', name: 'recyclerview', version: '1.1.0'
+    // https://mvnrepository.com/artifact/androidx.cardview/cardview
+    implementation group: 'androidx.cardview', name: 'cardview', version: '1.0.0'
+// https://mvnrepository.com/artifact/com.github.bumptech.glide/glide
+    implementation group: 'com.github.bumptech.glide', name: 'glide', version: '4.8.0'
+
+
 }
