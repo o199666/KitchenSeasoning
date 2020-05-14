@@ -2,6 +2,7 @@ package com.cwj.kitchenseasoning.menu.ui;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -29,6 +30,12 @@ public class DetailsActivity extends BaseActivity {
         binding.setDatabean(dataBean);
         binding.setImage(dataBean.getSteps().get(0).getImg());
         Log.e("托片路径：",dataBean.getSteps().get(0).getImg());
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     @Override
     public void initData() {

@@ -7,6 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="MyAppTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="MyAppTheme_toolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/font_18sp</item>
+    </style>
+
     <style name="AppTheme.MyApp" parent="Theme.MaterialComponents.Light.Bridge">
         <!-- ... -->
     </style>
