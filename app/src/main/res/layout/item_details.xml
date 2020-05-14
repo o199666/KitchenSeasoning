@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:padding="5dp"
                 android:scaleType="fitXY"
-             app:imageUrl="@{itemdeta.albums.get(0)}"
+               app:imageUrl="@{itemdeta.albums.get(0)}"
                 >
 
             </ImageView>

@@ -30,7 +30,7 @@ public class MenuAdapter1 extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Fragment fragment=new CuisineFragment();
         Bundle bundle=new Bundle();
-        bundle.putString("title",title.get(position).getName());
+        bundle.putString("title",title.get(position).getId());
         fragment.setArguments(bundle);
         return fragment;
     }

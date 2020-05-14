@@ -18,12 +18,9 @@ import com.cwj.kitchenseasoning.lifecycle.BaseLifecycleObserver;
  * Ver:1
  * DEC:
  */
-public abstract class BaseFragment   extends Fragment {
-
+public abstract class BaseFragment  extends Fragment {
     public BaseFragment() {
-
     }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

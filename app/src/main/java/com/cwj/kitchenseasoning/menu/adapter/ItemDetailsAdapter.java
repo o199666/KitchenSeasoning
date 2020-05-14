@@ -2,6 +2,7 @@ package com.cwj.kitchenseasoning.menu.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,19 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cwj.kitchenseasoning.R;
 import com.cwj.kitchenseasoning.databinding.ItemDetailsBinding;
 import com.cwj.kitchenseasoning.menu.bean.DetailsBean;
+import com.cwj.kitchenseasoning.menu.interfaces.ItemClike;
 
 import java.util.List;
 
 /**
  * 详细页面适配器
  */
-public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsViewHolder> {
+public class ItemDetailsAdapter extends RecyclerView.Adapter<ItemDetailsAdapter.DetailsViewHolder> {
     private List<DetailsBean.ResultBean.DataBean> list;
     private Context context;
-
-    public DetailsAdapter( Context context,List<DetailsBean.ResultBean.DataBean> list) {
+    private ItemClike item;
+    public ItemDetailsAdapter(Context context, List<DetailsBean.ResultBean.DataBean> list, ItemClike item) {
         this.list = list;
         this.context = context;
+         this.item=item;
     }
 
     //获取不同的布局
@@ -45,6 +48,12 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
         DetailsBean.ResultBean.DataBean detas = list.get(position);
         holder.getBinding().setItemdeta(detas);
         holder.getBinding().executePendingBindings();
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                item.onClike(view,detas);
+            }
+        });
     }
 
     @Override

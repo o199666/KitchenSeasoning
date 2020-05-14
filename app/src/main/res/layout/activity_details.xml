@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ScrollView
+        android:id="@+id/scv"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_det"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:imageUrl="@{databean.albums.get(0)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </ImageView>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            app:layout_constraintRight_toRightOf="@id/iv_det"
+            app:layout_constraintBottom_toBottomOf="@id/iv_det"
+            android:text="@{databean.title}"
+            android:textSize="@dimen/font_20sp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="介绍："
+            android:textColor="@color/fontblack"
+            android:textSize="@dimen/font_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_det" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_imtro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@{databean.imtro}"
+            android:textColor="@color/fontgray"
+            android:textSize="@dimen/font_18sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv1"
+            app:layout_constraintTop_toBottomOf="@id/iv_det" />
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="辅料："
+            android:textColor="@color/fontblack"
+            android:textSize="@dimen/font_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_imtro" />
+        <TextView
+            android:id="@+id/tv_burden"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="5dp"
+            android:text="@{databean.burden}"
+            android:textColor="@color/fontgray"
+            android:textSize="@dimen/font_18sp"
+            app:layout_constraintLeft_toRightOf="@id/tv2"
+            app:layout_constraintTop_toBottomOf="@id/tv_imtro" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="主料："
+            android:textColor="@color/fontblack"
+            android:textSize="@dimen/font_20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_burden" />
+        <TextView
+            android:id="@+id/tv_ingredients"
+            android:layout_width="0dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@{databean.ingredients}"
+            android:textColor="@color/fontgray"
+            android:textSize="@dimen/font_18sp"
+            app:layout_constraintLeft_toRightOf="@id/tv3"
+            app:layout_constraintTop_toBottomOf="@id/tv_burden" />
+            <TextView
+                android:id="@+id/tv_setup"
+                android:layout_width="wrap_content"
+                android:text="步骤"
+                android:textSize="@dimen/font_22sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_ingredients"
+                android:textColor="@color/fontblack"
+                android:layout_height="wrap_content">
+            </TextView>
+        <ImageView
+            android:id="@+id/iv_setup"
+            app:layout_constraintTop_toBottomOf="@id/tv_setup"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:imageUrl="@{databean.getSteps().get(0).img}"
+            android:scaleType="fitXY"
+             />
+
+        <TextView
+            android:text="@{String.valueOf(databean.steps.size())}"
+            android:background="@drawable/tran_circular_text"
+            android:textSize="@dimen/font_14sp"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@id/iv_setup"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            app:layout_constraintRight_toRightOf="@id/iv_setup"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <data>
+        <variable
+            name="image"
+            type="String" />
+        <variable
+            name="databean"
+            type="com.cwj.kitchenseasoning.menu.bean.DetailsBean.ResultBean.DataBean" />
+    </data>
+
+
+</layout>
+
+

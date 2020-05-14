@@ -9,4 +9,7 @@
     <color name="color_red">#F61119</color>
     <!--    -->
     <color name="colorGray">#DAE4DF</color>
+    <color name="fontblack">#131414</color>
+    <color name="fontgray">#B5333434</color>
+    <color name="fontgtranray">#A14F5454</color>
 </resources>

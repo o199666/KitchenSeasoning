@@ -1,10 +1,11 @@
 package com.cwj.kitchenseasoning.menu.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,8 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.cwj.kitchenseasoning.R;
 import com.cwj.kitchenseasoning.base.BaseFragment;
 import com.cwj.kitchenseasoning.databinding.FargmentCuisineBinding;
-import com.cwj.kitchenseasoning.menu.adapter.DetailsAdapter;
+import com.cwj.kitchenseasoning.menu.adapter.ItemDetailsAdapter;
 import com.cwj.kitchenseasoning.menu.bean.DetailsBean;
+import com.cwj.kitchenseasoning.menu.interfaces.ItemClike;
+import com.cwj.kitchenseasoning.menu.ui.DetailsActivity;
 import com.cwj.kitchenseasoning.menu.viewmodel.DetailsViewModel;
 
 import java.util.List;
@@ -32,7 +35,7 @@ import java.util.List;
 public class CuisineFragment extends BaseFragment {
     FargmentCuisineBinding cuisineBinding;
     DetailsViewModel detailsViewModel;
-    private DetailsAdapter detailsAdapter;
+    private ItemDetailsAdapter detailsAdapter;
 
     @Nullable
     @Override
@@ -47,24 +50,25 @@ public class CuisineFragment extends BaseFragment {
         //todo:取出adapter中储存的值，
         bd = getArguments();
         String title=bd.getString("title");
-        Toast.makeText(getContext(), title, Toast.LENGTH_SHORT).show();
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         cuisineBinding.rylv.setLayoutManager(layoutManager);
 
-
-
         detailsViewModel=new ViewModelProvider(this).get(DetailsViewModel.class);
-        detailsViewModel.getDetas().observe(this, new Observer<List<DetailsBean.ResultBean.DataBean>>() {
+        detailsViewModel.getDetas(title).observe(this, new Observer<List<DetailsBean.ResultBean.DataBean>>() {
             @Override
             public void onChanged(List<DetailsBean.ResultBean.DataBean> detailsBeans) {
-                if (title.equals("家常菜")){
-                    detailsAdapter = new DetailsAdapter(getContext(), detailsBeans);
-
+                    detailsAdapter = new ItemDetailsAdapter(getContext(), detailsBeans, new ItemClike() {
+                        @Override
+                        public void onClike(View view, DetailsBean.ResultBean.DataBean dataBean) {
+                            Log.e("点击图片:",dataBean.getAlbums().get(0));
+                            Intent intent=new Intent(getContext(), DetailsActivity.class);
+                            intent.putExtra("databean",dataBean);
+                            startActivity(intent);
+                        }
+                    });
                     cuisineBinding.rylv.setAdapter(detailsAdapter);
                 };
-            }
         });
 
     }
